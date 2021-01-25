@@ -18,4 +18,11 @@ class Admin::ItemsController < ApplicationController
   def update
   end
   
+  
+  private
+  
+  def item_params
+    params.require(:item).permit(:name, :image_id, :introduction, :price, :is_active)
+  end
+  
 end

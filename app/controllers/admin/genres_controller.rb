@@ -14,5 +14,9 @@ class Admin::GenresController < ApplicationController
   def update
   end
   
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
+  
   
 end
