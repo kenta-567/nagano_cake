@@ -1,21 +1,27 @@
 <span> <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></span>
 <div class="container">
-  <span>注文履歴一覧</span> 
-  <table class="table table-hover table-inverse">
-      <thead>
+  <div class="row">
+    <span class="text-dark bg-light">注文履歴一覧</span> 
+    <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+                <th>購入日時</th>
+                <th>購入者</th>
+                <th>注文個数</th>
+                <th>注文ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
           <tr>
-              <th>購入日時</th>
-              <th>購入者</th>
-              <th>注文個数</th>
-              <th>注文ステータス</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
-      </thead>
-      <tbody>
-          <tr></tr>
-      </tbody>
-  </table>
-    
-    
-    
+        </tbody>
+    </table>
+      
+      
+  </div>
 </div>
 
