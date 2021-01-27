@@ -1,11 +1,13 @@
 <div class="container">
+  
   <div class="row">
     <h5 class="my-4 mx-4 px-3 text-dark bg-light">商品新規登録</h5>
   </div>
-  <div class="form-body offset-2">
-    <%= form_with model: @item, local:true do |f| %>
-      <div class="form-group row form-inline">
-        <label class="col-3 control-label col-from-label text-left">商品画像</label>
+  
+  <div class="form-body">
+    <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+      <div class="form-group form-inline">
+        <label class="col-3 control-label col-from-label">商品画像</label>
         <%= f.attachment_field :image, class: "w-100 from-control col-7" %>
       </div>
       <div class="form-group form-inline">
@@ -27,12 +29,12 @@
       <div class="form-group form-inline">
         <label class="col-3 control-label col-from-label">販売ステータス</label>
         <div class="custom-control custom-radio custom-control-inline">
-          <%= f.radio_button :receive_news, '1' %>
-          <%= f.label :receive_news, '販売中', value: 1 %>
+          <%= f.radio_button :is_active, '販売中' %>
+          <%= f.label :is_active, '販売中', value: 1 %>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <%= f.radio_button :receive_news, '0' %>
-          <%= f.label :receive_news, '販売停止中', value: 0 %>
+          <%= f.radio_button :is_active, '販売停止中' %>
+          <%= f.label :is_active, '販売停止中', value: 0 %>
         </div>
       </div>
       <div class="justify-content-center">
@@ -40,6 +42,4 @@
       </div>
     <% end %>
   </div>
-  
-  
 </div>
