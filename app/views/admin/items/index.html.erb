@@ -5,9 +5,7 @@
     </div>
     <div class="ml-auto mt-2">
       <div class="nav-item">
-        <a href="items/new" style="width:3rem;height:3rem;" class="nav-link btn btn-light p-2 rounded-circle shadow btn-lg'">
-          <i class="fas fa-plus fa-2x" style="color:#AAAAAA;"></i>
-        </a>
+        <a href="items/new" class="btn-circle-3d">+</a>
         
       </div>
       
@@ -40,6 +38,9 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <span><%= paginate @items %></span>
   </div>
 </div>
 
