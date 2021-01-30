@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row col-10 offset-1">
     <h5 class="col-3 m-4 bg-light text-center">ジャンル一覧・追加</h5>
   </div>
-  <div class="row">
+  <div class="row col-10 offset-1">
     <%= form_with model: @genre, url: admin_genres_path, class: "d-flex flex-row align-items-center my-4", local:true do |f| %>
       <div class="col-3">
         <p class="m-0">ジャンル名</p>

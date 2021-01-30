@@ -1,6 +1,6 @@
 <div class="container">
-      <div class="row">
-        <span class="col-2 mt-4 text-dark bg-light">管理者ログイン</span>
+      <div class="row col-3 offset-1">
+        <label class=" mt-4 px-3 text-dark bg-light"><strong>管理者ログイン</strong></label>
       </div> 
       <div class="row">
         <div class="form-body col-8 mx-auto m-4">
@@ -13,7 +13,9 @@
               <label class="col-4 col-from-label">パスワード</label>
               <%= f.password_field :password, autocomplete: "current_password", class:"from-control col-7", id:"inputPassword" %>
             </div>
-              <%= f.submit "ログイン", class:"btn btn-lg justify-content-center btn-primary mt-3" %>
+            <div class=" col-4 offset-4 pl-1">
+              <%= f.submit "ログイン", class:"btn btn-md btn-primary px-5 mt-3" %>
+            </div>
           <% end %>
         </div>
       </div>

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-   email: 'test@test.com',
+   email: 'test5@test.com',
    password: '000000'
 )
 
@@ -15,8 +15,8 @@ Customer.create!(
    first_name: '理想',
    last_name_kana: 'ゲンジツ',
    first_name_kana: 'コレガ',
-   email: 'ooo@ooo.com',
-   encrypted_password: '111111',
+   email: 'custom2@custom.com',
+   password: '111111',
    postal_code: '5551111',
    address: '東京都渋⾕区神南１丁⽬１９−１１ パークウェースクエア24階',
    telephone_number: '0368696935',
