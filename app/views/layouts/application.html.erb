@@ -22,21 +22,21 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
               <ul class="nav nav-pills">
                 <% if customer_signed_in? %>
-                  <li class="nav-item px-2"><%= link_to "マイページ", customers_my_page_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "カート", cart_items_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link active' %></li></li>
+                  <li class="nav-item px-2"><%= link_to "マイページ", customers_my_page_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item px-2"><%= link_to "カート", cart_items_path, class: 'btn btn-default nav-link active' %></li>
+                  <li class="nav-item px-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-default active' %></li></li>
                 <% elsif admin_signed_in? %>
-                  <li class="nav-item px-2"><%= link_to "商品一覧", admin_items_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "会員一覧",admin_customers_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "注文履歴一覧", admin_homes_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link active'%></li>
-                  <li class="nav-item px-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link active' %></li>
+                  <li class="nav-item px-2"><%= link_to "商品一覧", admin_items_path, class: 'btn btn-default-admin active' %></li>
+                  <li class="nav-item px-2"><%= link_to "会員一覧",admin_customers_path, class: 'btn btn-default-admin active' %></li>
+                  <li class="nav-item px-2"><%= link_to "注文履歴一覧", admin_homes_path, class: 'btn btn-default-long active' %></li>
+                  <li class="nav-item px-2"><%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-default-long active'%></li>
+                  <li class="nav-item px-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-default-logout active' %></li>
                 <% else %>
-                  <li class="nav-item px-2"><%= link_to "About", about_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "ログイン", new_admin_session_path, class: 'nav-link active' %></li>
+                  <li class="nav-item px-2"><%= link_to "About", about_path, class: 'btn btn-default-about text-centr active' %></li>
+                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item px-2"><%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item px-2"><%= link_to "ログイン", new_admin_session_path, class: 'btn btn-default active' %></li>
                 <% end %>
               </ul>
             </div>

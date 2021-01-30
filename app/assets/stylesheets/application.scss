@@ -16,3 +16,44 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+// nav-list-bottan
+
+.btn-default {
+  width:80px;
+  height:40px;
+  font-size:14px;
+  border-color: #343a40;
+  padding: 0.5rem 0.6rem;
+}
+
+.btn-defolt-about {
+  width:80px;
+  height:40px;
+  font-size:14px;
+  padding: 0.5rem 0.8rem;
+}
+
+.btn-default-admin {
+  width:90px;
+  height:40px;
+  font-size:14px;
+  border-color: #343a40;
+  padding: 0.5rem 0.9rem;
+}
+
+.btn-default-logout {
+  width:90px;
+  height:40px;
+  font-size:14px;
+  border-color: #343a40;
+  padding: 0.5rem 0.4rem;
+}
+
+.btn-default-long {
+  width:90px;
+  height:40px;
+  font-size:14px;
+  border-color: #343a40;
+  padding: 0.5rem 0rem;
+}
