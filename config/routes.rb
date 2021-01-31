@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   sessions:      'admins/sessions'
 }
   devise_for :customers, controllers: {
-  sessions:      'public/sessions',
-  passwords:     'public/passwords',
-  registrations: 'public/registrations'
+  sessions:      'publics/sessions',
+  passwords:     'publics/passwords',
+  registrations: 'publics/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

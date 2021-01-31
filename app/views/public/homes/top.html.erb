@@ -1,0 +1,32 @@
+<div class="conteiner">
+  <div class="row">
+    <div class="col-6 offset-3 mt-4 d-flex cover-img" style="background-image:url('https://manablog.org/wp-content/uploads/2016/11/top-img.jpg');">
+      <div class="col-7 offset-2 m-auto pl-0 py-5 cover-text"  style="background-color: #fff;">
+        <p class="m-0">ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員ではない方も商品の閲覧はできますが、<br>購入には会員登録が必要日になります。</p>
+      </div>
+    </div>
+  </div>
+  <div class="row col-2 offset-2 mt-4 mb-3 pl-0 d-flex justify-content-center">
+    <h3><strong>新着商品</strong></h3>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <% @new_items.each do |new_item| %>
+    <div class="box d-flex flex-column">
+      <div class="mx-1">
+        <%= link_to admin_item_path(new_item.id) do %>
+          <%= attachment_image_tag new_item, :image, size:"240x140", fallback: "no_image.jpg" %>
+        <% end %>
+      </div>
+      <span><%= new_item.name %></span>
+      <span><%= new_item.price %></span>
+    </div>
+    <% end %>
+  </div>
+  <div class="row row col-2 offset-8 justify-content-center">
+    <span>
+      <%= link_to items_path do %>
+        <u>すべての商品を見る＞</u>
+      <% end %>
+    </span>
+  </div>
+</div>
