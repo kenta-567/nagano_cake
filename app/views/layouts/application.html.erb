@@ -10,37 +10,51 @@
   </head>
 
   <body>
-        <header>
-        <nav class="navbar navbar-expand-lg pt-5 pb-5 navbar-light bg-light">
-         
-            <a class="navbar-brand" href="admin/homes">
+        <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light d-flex">
+            <a class="navbar-brand mt-3" href="admin/homes">
               <span>ながのCAKE</span>
             </a>
-            <button class="navbar-toggler" tupe="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <div class="ml-auto">
               <ul class="nav nav-pills">
                 <% if customer_signed_in? %>
-                  <li class="nav-item px-2"><%= link_to "マイページ", customers_my_page_path, class: 'btn btn-default active' %></li>
-                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
-                  <li class="nav-item px-2"><%= link_to "カート", cart_items_path, class: 'btn btn-default nav-link active' %></li>
-                  <li class="nav-item px-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-default active' %></li></li>
+                <div class="row mt-5 mr-4">
+                  <li class="nav-item mx-2 px-2"><%= link_to "マイページ", customers_my_page_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "カート", cart_items_path, class: 'btn btn-default nav-link active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-default active' %></li></li>
+                </div>
                 <% elsif admin_signed_in? %>
+                <div class="row col-9 mt-3 offset-4">
                   <li class="nav-item px-2"><%= link_to "商品一覧", admin_items_path, class: 'btn btn-default-admin active' %></li>
                   <li class="nav-item px-2"><%= link_to "会員一覧",admin_customers_path, class: 'btn btn-default-admin active' %></li>
                   <li class="nav-item px-2"><%= link_to "注文履歴一覧", admin_homes_path, class: 'btn btn-default-long active' %></li>
                   <li class="nav-item px-2"><%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-default-long active'%></li>
                   <li class="nav-item px-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-default-logout active' %></li>
+                </div>
+                <div class="row mt-3 mr-3 col-5  offset-8">
+                  <% if admin_signed_in? %>
+                    <form class="form-inline">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                          <span class="input-group-btn">
+                            <button class="btn search"><i class="fas fa-search fa-flip-horizontal"></i></button>
+                          </span>
+                        </input>
+                      </div>
+                    </form>
+                  <% end %>
+                </div>
                 <% else %>
-                  <li class="nav-item px-2"><%= link_to "About", about_path, class: 'btn btn-default-about text-centr active' %></li>
-                  <li class="nav-item px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
-                  <li class="nav-item px-2"><%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-default active' %></li>
-                  <li class="nav-item px-2"><%= link_to "ログイン", new_admin_session_path, class: 'btn btn-default active' %></li>
+                <div class="row mt-5 mr-4">
+                  <li class="nav-item mx-2 px-2"><%= link_to "About", about_path, class: 'btn btn-default-about text-centr active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "商品一覧", items_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-default active' %></li>
+                  <li class="nav-item mx-2 px-2"><%= link_to "ログイン", new_admin_session_path, class: 'btn btn-default active' %></li>
+                </div>
                 <% end %>
               </ul>
             </div>
-         
         </nav>
     </header>
     
