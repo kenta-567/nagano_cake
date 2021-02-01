@@ -1,0 +1,17 @@
+<div class="conteiner">
+  <div class="col-3 pt-1 px-0">
+    <%= attachment_image_tag @item, :image, size: "230x180", fallback: "no_image.jpg" %>
+  </div>
+  <div>
+    <h4><%= @item.name %></h4>
+    <text><%= @item.introduction %></text>
+    <br>
+    <span>￥<%= @item.price.to_s(:delimited, delimiter: ',') %>&ensp;<em>(税込)</em></span>
+    <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+      <%= f.select :amount, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: '選択ボックス'}, class: 'form-select sample' %>
+      <div class="form-group">
+        <%= f.submit 'カートに入れる', class:"btn-new mt-4" %>
+      </div>
+    <% end %>
+  </div>
+</div>

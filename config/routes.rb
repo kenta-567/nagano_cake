@@ -19,12 +19,14 @@ Rails.application.routes.draw do
   post "orders/confilm" => "public/orders#confilm"
   post "orders" => "public/orders#create"
 
-  resources :addresses, except: [:new, :show]
-  resources :orders, only:[:new, :index, :show]
-  resources :items, only:[:show, :index]
-  resources :customers, only:[:edit, :update]
-  resources :cart_items, only:[:index, :create, :update, :destroy]
-    
+
+  namespace :public do
+    resources :addresses, except: [:new, :show]
+    resources :orders, only:[:new, :index, :show]
+    resources :items, only:[:show, :index]
+    resources :customers, only:[:edit, :update]
+    resources :cart_items, only:[:index, :create, :update, :destroy]
+  end  
     
   namespace :admin do
     resources :items, except: [:destroy]

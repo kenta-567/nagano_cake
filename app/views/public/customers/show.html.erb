@@ -1,0 +1,59 @@
+<div class="conteiner">
+  <div class="row">
+    <label class=" mt-4 px-3 text-dark bg-light">マイページ</label>
+  </div>
+  <div class="row col-10">
+    <div class="col-3">
+      <span class="m-0"><strong>登録情報</strong></span>
+    </div>
+    <div class="col-4 text-right">
+      <%= link_to "編集する", edit_public_customer_path(@customer.id), class: 'nav-link btn btn-success px-1 btn-ms' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <table class="table table-sm table-bordered">
+      <tr>
+        <td class="bg-light" style="width:30%;"><label>氏名</label></td>
+        <td><label><%= @customer.first_name %><%= @customer.last_name %></label></td>
+      </tr>
+      <tr>
+        <td class="bg-light"><label>カナ</label></td>
+        <td><label><%= @customer.first_name_kana %><%= @customer.last_name_kana %></label></td>
+      </tr>
+      <tr>
+        <td class="bg-light"><label>郵便番号</label></td>
+        <td><label><%= @customer.postal_code %></label></td>
+      </tr>
+      <tr>
+        <td class="bg-light"><label>住所</label></td>
+        <td><label><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td class="bg-light"><label>電話番号</label></td>
+        <td><label><%= @customer.telephone_number %></label></td>
+      </tr>
+      <tr>
+        <td class="bg-light"><label>メールアドレス</label></td>
+        <td><label><%= @customer.email %></label></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="row col-10">
+    <div class="col-3">
+      <span class="m-0"><strong>配送先</strong></span>
+    </div>
+    <div class="col-4 text-right">
+      <%= link_to "一覧を見る", public_addresses_path(@customer.id), class: 'nav-link btn btn-into px-1 btn-ms' %>
+    </div>
+  </div>
+  <div class="row col-10">
+    <div class="col-3">
+      <span class="m-0"><strong>注文履歴</strong></span>
+    </div>
+    <div class="col-4 text-right">
+      <%= link_to "一覧を見る", public_orders_path(@customer.id), class: 'nav-link btn btn-into px-1 btn-ms' %>
+    </div>
+  </div>
+</div>
