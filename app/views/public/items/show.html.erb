@@ -1,17 +1,23 @@
 <div class="conteiner">
-  <div class="col-3 pt-1 px-0">
-    <%= attachment_image_tag @item, :image, size: "230x180", fallback: "no_image.jpg" %>
-  </div>
-  <div>
-    <h4><%= @item.name %></h4>
-    <text><%= @item.introduction %></text>
-    <br>
-    <span>￥<%= @item.price.to_s(:delimited, delimiter: ',') %>&ensp;<em>(税込)</em></span>
-    <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-      <%= f.select :amount, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: '選択ボックス'}, class: 'form-select sample' %>
-      <div class="form-group">
-        <%= f.submit 'カートに入れる', class:"btn-new mt-4" %>
+  <div class="row justify-content-center mt-5">
+    <div class="col-2 pt-1 px-0">
+      <%= attachment_image_tag @item, :image, size: "230x160", fallback: "no_image.jpg" %>
+    </div>
+    <div class="col-4">
+      <h4><%= @item.name %></h4>
+      <text><%= @item.introduction %></text>
+      <div class="row mt-5">
+        <h4 class="my-3 px-2">￥<%= @item.price.to_s(:delimited, delimiter: ',') %></h4><p class="my-4">(税込)</p>
       </div>
-    <% end %>
+      <div class="row pl-3">
+        <%= form_with model: @cart_item, url: public_cart_items_path, local:true do |f| %>
+        <div class="d-flex">
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %>
+          <%= f.submit 'カートに入れる', class:"btn btn-sm btn-success px-3 offset-3  py-2" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

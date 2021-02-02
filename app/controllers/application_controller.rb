@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
     case resource
-    when Admin
+    when :admin
       admin_homes_path
-    when Customer
+    when :customer
       root_path
     end
   end
@@ -16,20 +16,29 @@ class ApplicationController < ActionController::Base
     customers_my_page_path
   end
   
-  # def after_sign_out_path_for(resource)
-  #   case resource
-  #   when Admin
-  #   new_admin_session_path 
-  #   when Customer
-  #     root_path
+  def after_sign_out_path_for(resource)
+    case resource
+    when :admin
+    new_admin_session_path 
+    when :customer
+      root_path
+    end
+  end
+  
+  
+  helper_method :current_cart
+
+  # def current_cart
+  #   if session[:cart_item_id]
+  #     @cart = CartItem.find(session[:cart_id])
+  #   else
+  #     @cart = CartItem.create
+  #     session[:cart_item_id] = @cart.id
   #   end
   # end
   
-  
-  
-  
-  
-  
+  private
+
   
    def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:address,:telephone_number])
