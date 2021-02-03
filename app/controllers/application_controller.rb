@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  
   # before_action :authenticate_admin!,except: [:top, :about]
   before_action :configure_permitted_parameters, if: :devise_controller?
   
@@ -26,17 +25,7 @@ class ApplicationController < ActionController::Base
   end
   
   
-  helper_method :current_cart
 
-  # def current_cart
-  #   if session[:cart_item_id]
-  #     @cart = CartItem.find(session[:cart_id])
-  #   else
-  #     @cart = CartItem.create
-  #     session[:cart_item_id] = @cart.id
-  #   end
-  # end
-  
   private
 
   
