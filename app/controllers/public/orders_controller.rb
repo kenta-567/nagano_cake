@@ -2,20 +2,38 @@ class Public::OrdersController < ApplicationController
   
   
   def show
+    @order = Order.find(params[:id])
   end
   
 
   def index
+    @orders = Order.all
   end
   
   def new
+    @order = Order.new
   end
   
   
   def confilm
+    @cart_items = current_customer.cart_items
+    @order = Order.new(order_params)
+    
+    @sum = 0
+    @cart_items.each do |cart_item|
+      @sub_total = cart_item.item.price.to_i * cart_item.amount.to_i
+      @sum += sub_total
+    end
+    @total = @sum
   end
   
   def create
+    @order = Order.new(order_params)
+    if @order.save!
+      redirect_to orders_thanks
+    else
+      render :new
+    end
   end
   
   def thanks

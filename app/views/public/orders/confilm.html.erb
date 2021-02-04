@@ -1,0 +1,46 @@
+<div class="conteiner">
+  <div class="row col-4 offset-1">
+    <h5 class="my-4 mx-4 px-3 text-dark bg-light">注文情報確認</h5>
+  </div>
+ <%= form_with model: @orders, url: orders_path, class: "col-10 my-4", local:true do |f| %> 
+  <div class="row">
+    <table class="table-bordered col-7">
+      <thead class="bg-light">
+        <tr>
+          <th>商品名</th>
+          <th style="width:15%;">単価(税込)</th>
+          <th style="width:15%;">数量</th>
+          <th style="width:15%;">小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+           <td><%= attachment_image_tag cart_item.item, :image, size: "40x40", fallback: "no_image.jpg" %><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.price.to_s(:delimited, delimiter: ',') %></td>
+            <td class="text-center"><%= cart_item.amount %></td>
+            <td><%= <%= @sub_total.to_s(:delimited, delimiter: ',') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <table class="table-bordered col-4">
+      <td></td>
+      <td><%= @total.to_s(:delimited, delimiter: ',') %></td>
+      <td></td>
+    </table>
+  </div>
+  
+  <div class="row">
+    <label>支払方法</label>
+    <label><%= @order.payment_method %></label>
+  </div>
+  <div class="row">
+    <label>お届け先</label>
+    <label><%= @order.address %></label>
+  </div>
+  <% end %>
+  <div class="row">
+    <%= link_to "注文を確定する", orders_thanks_path, class: 'nav-link btn btn-primary px-3 py-2 btn-sm' %>
+  </div>
+</div>

@@ -1,9 +1,9 @@
-<div class="conteiner">
-  <div class="row col-4 offset-1">
+<div class="container">
+  <div class="row col-3 offset-1">
     <h5 class="my-4 mx-4 px-3 text-dark bg-light">配送先登録/一覧</h5>
   </div>
   
-  <div class="row col-10 offset-1">
+  <div class="row col-12 ml-3">
     <%= form_with model: @address, url: public_addresses_path, class: "col-10 my-4", local:true do |f| %>
       <div class="form-group row">
         <label class="col-3">郵便番号(ハイフンなし)</label>
@@ -24,8 +24,8 @@
     <% end %>
   </div>
   
-  <div class="row row col-10 offset-1">
-    <table class="table table-border border-dark mt-4 col-5">
+  <div class="row col-10 ml-3">
+    <table class="table table-bordered border-dark mt-4 col-9">
       <thead class="bg-light">
         <tr>
           <th>郵便番号</th>
@@ -37,17 +37,17 @@
       <tbody class="solid">
         <% @addresses.each do |address| %>
         <tr>
-          <td class="pt-4">
+          <td class="align-middle pl-1 pr-0" style="width:15%;">
             <span><%= address.postal_code %></span>
           </td>
-          <td>
+          <td class="align-middle pl-1 pr-0" style="width:40%;">
             <span><%= address.address %></span>
           </td>
-          <td>
+          <td class="align-middle pl-1 pr-0" style="width:15%;">
             <span><%= address.name %></span>
           </td>
-          <td>
-            <%= link_to "編集する", edit_public_address_path(address.id), class: 'nav-link btn btn-success px-1 btn-ms' %>
+          <td class="text-center" style="width:30%;">
+            <%= link_to "編集する", edit_public_address_path(address.id), class: 'btn btn-success px-2 py-1 mx-1 btn-sm' %>
             <%= link_to "削除する", public_address_path(address.id), method: :delete,  "data-confirm" => "Are you sure?", class:"btn btn-sm btn-danger px-2 py-1" %>
           </td>
         </tr>

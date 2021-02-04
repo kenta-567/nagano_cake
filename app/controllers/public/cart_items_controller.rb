@@ -2,6 +2,13 @@ class Public::CartItemsController < ApplicationController
   
   def index
     @cart_items = current_customer.cart_items
+    
+    @sum = 0
+    @cart_items.each do |cart_item|
+      sub_total = cart_item.item.price.to_i * cart_item.amount.to_i
+      @sum += sub_total
+    end
+    @total = @sum
   end
   
 
@@ -19,7 +26,7 @@ class Public::CartItemsController < ApplicationController
 
   
   def update
-    @cart_item = current_customer.cart_items.find_by(params[:item_id])
+    @cart_item = current_customer.cart_items.find(params[:id])
     @cart_item.update(cart_item_params)
     redirect_to public_cart_items_path
   end
@@ -33,6 +40,8 @@ class Public::CartItemsController < ApplicationController
   
   
   def destroy_all
+    current_customer.cart_items.delete_all
+    redirect_to  public_cart_items_path
   end
   
 private
