@@ -2,6 +2,7 @@
 
 class Publics::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_inactive_customer, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -17,6 +18,15 @@ class Publics::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  
+  def reject_inactive_user
+   @customer = User.find_by(customer: params[:customer][:first_name][:last_name][:first_name_kana][:last_name_kana])
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
+        redirect_to new_customer_session_path
+      end
+    end
+  end
 
   # protected
 

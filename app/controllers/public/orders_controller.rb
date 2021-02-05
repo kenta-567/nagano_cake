@@ -18,13 +18,14 @@ class Public::OrdersController < ApplicationController
   def confilm
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
-    
+   
     @sum = 0
     @cart_items.each do |cart_item|
-      @sub_total = cart_item.item.price.to_i * cart_item.amount.to_i
+      sub_total = cart_item.item.price.to_i * cart_item.amount.to_i
       @sum += sub_total
     end
     @total = @sum
+    @order.shipping_cost = Order.find_by(shipping_cost: 800)
   end
   
   def create
