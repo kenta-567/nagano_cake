@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get "about" => "public/homes#about"
   get "customers/my_page" => "public/customers#show"
-  get "customers/unsubscribe" => "public/customers#unsubscribe"
-  patch "customers/withdrawal" => "public/customers#withdrawal"
+  get "customers/:id/unsubscribe" => "public/customers#unsubscribe", as: "customers_unsubscribe"
+  patch "customers/:id/withdrawal" => "public/customers#withdrawal", as: "customers_withdrawal"
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
   get "orders/thanks" => "public/orders#thanks"
-  post "orders/confilm" => "public/orders#confilm"
+  post "orders/confirm" => "public/orders#confirm"
   post "orders" => "public/orders#create"
 
 

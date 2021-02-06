@@ -20,7 +20,7 @@ class Publics::SessionsController < Devise::SessionsController
   # end
   
   def reject_inactive_user
-   @customer = User.find_by(customer: params[:customer][:first_name][:last_name][:first_name_kana][:last_name_kana])
+   @customer = User.find_by(customer: params[:customer][:email])
     if @customer
       if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
         redirect_to new_customer_session_path

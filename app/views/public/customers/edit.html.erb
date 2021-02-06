@@ -37,7 +37,7 @@
           <%= f.submit '編集内容を保存', class:"btn btn-ms btn-block btn-success pt-1 px-0 mt-4" %>
         </div>
         <div class="col-3 px-0">
-          <%= f.submit '退会する', class:"btn btn-ms btn-block btn-danger pt-1 px-0 mt-4" %>
+          <%= link_to "退会する", customers_unsubscribe_path(@customer.id), class: "btn btn-ms btn-block btn-danger pt-1 px-0 mt-4" %>
         </div>
       </div>
     <% end %>

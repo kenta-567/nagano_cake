@@ -2,7 +2,7 @@
   <div class="row col-4 offset-1">
     <h5 class="my-4 mx-4 px-3 text-dark bg-light">注文情報入力</h5>
   </div>
-  <%= form_with model: @order, url: orders_confilm_path, class: "col-10 my-4", local:true do |f| %>
+  <%= form_with model: @order, url: orders_confirm_path, class: "col-10 my-4", local:true do |f| %>
     <div class="offset-1  mb-3">
       <div class="row">
         <h5>支払方法</h5>
@@ -25,7 +25,7 @@
       </div>  
       <div class="row">   
         <div class="radio-inline ml-5">
-          <%= f.radio_button Order.pluck(:postal_code, :address, :name), :full_address %>
+          <%= radio_button :address, :address_kind, 1 %>
           <%= f.label :ご自身の住所, class: "mb-0" %>
           <div class="ml-5">
             <label class="mb-0">〒<%= current_customer.postal_code %><%= current_customer.address %></label><br>
@@ -35,7 +35,7 @@
       </div>  
       <div class="row">  
         <div class="radio-inline ml-5 mb-2">
-          <%= f.radio_button :order, :full_address %>
+          <%= radio_button :address, :address_kind, 2 %>
           <%= f.label :登録済住所から選択, class: "mb-0" %>
           <div class="ml-5">
             <%= f.collection_select :address_id, Address.all, :id, :full_address, class: 'form-select pl-0', style: "width: 200px;" %>
@@ -44,7 +44,7 @@
       </div>  
       <div class="row">  
         <div class="radio-inline ml-5 col-10 pl-0">
-          <%= f.radio_button :order, :full_address %>
+          <%= radio_button :address, :address_kind, 3 %>
           <%= f.label :新しいお届け先, class: "mb-0" %>
           <div class="form-group ml-5 row">
             <label class="col-3 pt-1 mb-0">郵便番号(ハイフンなし)</label>

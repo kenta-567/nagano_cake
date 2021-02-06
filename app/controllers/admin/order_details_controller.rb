@@ -11,7 +11,7 @@ class Admin::OrderDetailsController < ApplicationController
   private
   
   def order_detail_params
-    params.require(:order_detail).permit(:price, :amount, :making_status, :created_at, :updated_at)
+    params.require(:order_detail).permit(:price, :amount, :making_status)
   end
   
 end
