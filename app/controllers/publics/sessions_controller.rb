@@ -14,19 +14,22 @@ class Publics::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-  
-  def reject_inactive_user
-   @customer = User.find_by(customer: params[:customer][:email])
+  def reject_inactive_customer
+  @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
       if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
         redirect_to new_customer_session_path
       end
     end
   end
+
+
+  # DELETE /resource/sign_out
+  # def destroy
+  #   super
+  # end
+  
+
 
   # protected
 

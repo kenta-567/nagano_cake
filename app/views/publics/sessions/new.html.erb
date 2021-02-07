@@ -8,7 +8,7 @@
   <div class="row">
     <div class="form-body col-8 mx-auto m-4">
       <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-        <div class="form-group ">
+        <div class="form-group">
           <label class="col-3 control-label col-from-label">メールアドレス</label>
           <%= f.email_field :email, autofocus: true, class:"from-control col-7", id:"inputEmail" %>
         </div>
