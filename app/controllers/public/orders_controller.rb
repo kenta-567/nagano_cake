@@ -2,7 +2,14 @@ class Public::OrdersController < ApplicationController
   
   
   def show
-    @order = Order.find(params[:order][:id])
+    @order = OrderDetail.all
+    
+    @sum = 0
+    @order_details.each do |order_detail|
+      sub_total = order_detail.item.price * order_detail.amount
+      @sum += sub_total
+    end
+    @total = @sum
   end
   
 
@@ -18,13 +25,12 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items
-    
     if address_params[:address_kind] == "1" 
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.full_name
     elsif address_params[:address_kind] == "2"
-      address = Address.find(order_params[:address_id])
+      address = Address.find(params[:order]["address_id"])
       @order.postal_code = address.postal_code
       @order.address = address.address
       @order.name = address.name
@@ -44,10 +50,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     if @order.save!
-      @order_detail = OrderDetail.new
-      @order_detail = current_customer.cart_items
-      @order_detail = @order
+      current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new({
+        order_id: @order.id,
+        price: cart_item.item.price,
+        item_id: cart_item.item_id,
+        amount: cart_item.amount
+      })
       @order_detail.save!
+    end
+      current_customer.cart_items.delete_all
       redirect_to orders_thanks_path
     else
       render :new

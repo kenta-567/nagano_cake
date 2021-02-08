@@ -4,7 +4,7 @@
   </div>
   
   
-  <div class="row col-11 ml-4">
+  <div class="row col-10 ml-4">
     <table class="table table-bordered border-dark mt-4">
       <thead class="bg-light">
         <tr>
@@ -19,22 +19,24 @@
       <tbody class="solid">
         <% @orders.each do |order| %>
           <tr>
-            <td class="align-middle pl-1 pr-0">
-              <%= order.created_at %>
+            <td class="align-middle pl-1 py-0 pr-0">
+              <%= order.created_at.strftime('%Y/%m/%d') %>
             </td>
-            <td class="align-middle pl-1 pr-0">
-              <%= order.postal_code %><br><%= order.address %><br><%= order.name %>
+            <td class="align-middle pl-1 py-0 pr-0">
+              〒<%= order.postal_code %><br><%= order.address %><br><%= order.name %>
             </td>
-            <td class="align-middle pl-1 pr-0">
-              <%= order.item.name %>
+            <td class="align-middle pl-1 py-0 pr-0">
+              <% order.order_details.each do |order_detail| %>
+                  <%= order_detail.item.name %><br>
+              <% end %>
             </td>
-            <td class="align-middle pl-1 pr-0">
-              <%= order.total_payment %>
+            <td class="align-middle pl-1 py-0 pr-0">
+              <%= order.total_payment %>円
             </td>
-            <td class="align-middle pl-1 pr-0">
+            <td class="align-middle pl-1 py-0 pr-0">
               <%= order.status %>
             </td>
-            <td class="text-center">
+            <td class="text-center pt-3">
               <%= link_to "表示する", public_order_path(current_customer), class: 'btn btn-primary px-2 py-1 mx-1 btn-sm' %>
             </td>  
           </tr>
