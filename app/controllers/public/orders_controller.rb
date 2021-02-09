@@ -2,10 +2,10 @@ class Public::OrdersController < ApplicationController
   
   
   def show
-    @order = OrderDetail.all
+    @order = Order.find(params[:id])
     
     @sum = 0
-    @order_details.each do |order_detail|
+    @order.order_details.each do |order_detail|
       sub_total = order_detail.item.price * order_detail.amount
       @sum += sub_total
     end
@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
   
 
   def index
-    @orders = Order.all
+    @orders = Order.all 
   end
   
   def new

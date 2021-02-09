@@ -24,7 +24,9 @@ body{
 }
 .header {
   width: 100%;
-  background-color: lightblue;
+  background: #AAFFA9;  /* fallback for old browsers */
+　background: -webkit-linear-gradient(to left, #11FFBD, #AAFFA9);  /* Chrome 10-25, Safari 5.1-6 */
+　background: linear-gradient(to left, #11FFBD, #AAFFA9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   position: fixed;
   top: 0;
   left: 0;
@@ -39,7 +41,9 @@ body{
   left: 0;
   right: 0;
   height: 100px;
-  background-color: lightblue;
+  background: #AAFFA9;  /* fallback for old browsers */
+　background: -webkit-linear-gradient(to left, #11FFBD, #AAFFA9);  /* Chrome 10-25, Safari 5.1-6 */
+　background: linear-gradient(to left, #11FFBD, #AAFFA9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   z-index: 10;
 }
 
