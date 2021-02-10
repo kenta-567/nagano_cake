@@ -53,7 +53,7 @@
       <h5 class="pt-1"><strong>注文履歴</strong></h5>
     </div>
     <div class="col-3 px-0 ml-4">
-      <%= link_to "一覧を見る", public_orders_path(@customer.id), class: 'nav-link btn btn-primary px-0 py-1 btn-ms' %>
+      <%= link_to "一覧を見る", public_orders_path(customer_id: @customer.id), class: 'nav-link btn btn-primary px-0 py-1 btn-ms' %>
     </div>
   </div>
 </div>

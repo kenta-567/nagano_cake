@@ -4,45 +4,45 @@
   </div>
   <div class="row mt-3 ml-2">
     <div class="form-body col-9 ml-3">
-      <table class="table table-borderless">
+      <table class="table table-borderless mb-0">
         <tr>
-          <td><label>会員ID</label></td>
-          <td><label><%= @customer.id %></label></td>
+          <td style="width: 30%;" class="py-2"><label>会員ID</label></td>
+          <td class="py-2"><label><%= @customer.id %></label></td>
         </tr>
         <tr>
-          <td><label>氏名</label></td>
-          <td><label><%= @customer.first_name %></label>&emsp;<label><%= @customer.last_name %></label></td>
+          <td class="py-2"><label>氏名</label></td>
+          <td class="py-2"><label><%= @customer.first_name %></label>&emsp;<label><%= @customer.last_name %></label></td>
         </tr>
         <tr>
-          <td><label>フリガナ</label></td>
-          <td><label><%= @customer.first_name_kana %></label>&emsp;<label><%= @customer.last_name_kana %></label></td>
+          <td class="py-2"><label>フリガナ</label></td>
+          <td class="py-2"><label><%= @customer.first_name_kana %></label>&emsp;<label><%= @customer.last_name_kana %></label></td>
         </tr>
         <tr>
-          <td><label>郵便番号</label></td>
-          <td><label><%= @customer.postal_code %></label></td>
+          <td class="py-2"><label>郵便番号</label></td>
+          <td class="py-2"><label><%= @customer.postal_code %></label></td>
         </tr>
         <tr>
-          <td><label>住所</label></td>
-          <td><label><%= @customer.address %></label></td>
+          <td class="py-2"><label>住所</label></td>
+          <td class="py-2"><label><%= @customer.address %></label></td>
         </tr>
         <tr>
-          <td><label>電話番号</label></td>
-          <td><label><%= @customer.telephone_number %></label></td>
+          <td class="py-2"><label>電話番号</label></td>
+          <td class="py-2"><label><%= @customer.telephone_number %></label></td>
         </tr>
         <tr>
-          <td><label>メールアドレス</label></td>
-          <td><label><%= @customer.email %></label></td>
+          <td class="py-2"><label>メールアドレス</label></td>
+          <td class="py-2"><label><%= @customer.email %></label></td>
         </tr>
         <tr>
-          <td><label>会員ステータス</label></td>
-          <td><label><%= @customer.is_active == true ?  "有効" : "退会" %></label></td>
+          <td class="py-2"><label>会員ステータス</label></td>
+          <td class="py-2"><label><%= @customer.is_active == true ?  "有効" : "退会" %></label></td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row">
-    <div class="col-3 offset-2"><%= link_to "編集する", edit_admin_customer_path, class: ' btn btn-lg  btn-info ml-3 px-3 mt-4' %></div>
-    <div class="justify-content-center"><%= link_to "注文履歴一覧を見る", admin_order_path(@order.customer.id), class: ' btn btn-lg  btn-info px-4 mt-4' %></div>
+    <div class="col-2 offset-3"><%= link_to "編集する", edit_admin_customer_path, class: 'btn btn-md btn-success px-3' %></div>
+    <div class="justify-content-center"><%= link_to "注文履歴一覧を見る", admin_homes_path(user_id: @customer.id), class: ' btn btn-md btn-primary px-4' %></div>
   </div>
     
   

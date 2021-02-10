@@ -36,12 +36,6 @@
   border-bottom: 2px solid #dee2e6;
 }
 
-.colored {
-  @if is_active == false{
-    color: green;
-  }
-}
-
 // new.html
 .item_image_btn{
     display: none;

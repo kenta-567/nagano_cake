@@ -34,7 +34,7 @@
               <%= order.total_payment.to_s(:delimited, delimiter: ',') %>円
             </td>
             <td class="align-middle pl-1 py-0 pr-0">
-              <%= order.status %>
+              <%= order.status_i18n %>
             </td>
             <td class="text-center align-middle">
               <%= link_to "表示する", public_order_path(order.id), class: 'btn btn-primary px-2 py-1 mx-1 btn-sm' %>
@@ -44,5 +44,7 @@
       </tbody>
     </table>
   </div>
-  
+  <div class="row d-flex justify-content-center">
+    <span style="padding: 0 10px"><%= paginate @orders %></span>
+  </div>
 </div>

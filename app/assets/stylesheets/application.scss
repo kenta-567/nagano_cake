@@ -35,6 +35,12 @@ body{
   z-index: 10;
 }
 
+.img {
+  width:160px;
+  height: 80px;
+  left:150px;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -94,4 +100,9 @@ body{
   border-left: 0px none;
   border: 1px solid #ced4da;
   background-color: #fff;
+}
+
+.pagination span{ 
+  margin-right: 5px;
+  text-decoration: underline;
 }

@@ -38,7 +38,7 @@
           <%= radio_button :address, :address_kind, 2 %>
           <%= f.label :登録済住所から選択, class: "mb-0" %>
           <div class="ml-5">
-            <%= f.collection_select :address_id, Address.all, :id, :full_address, class: 'form-select pl-0', style: "width: 200px;" %>
+            <%= f.collection_select :address_id, @addresses, :id, :full_address, class: 'form-select pl-0', style: "width: 200px;" %>
           </div>  
         </div>
       </div>  

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:show, :update]
-    patch "order_details/:id" => "order_details#update"
+    patch "order_details/:id" => "order_details#update", as: "order_detail"
   end
   get "admin/homes", to: "admin/homes#top"
   

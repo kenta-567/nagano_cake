@@ -14,11 +14,16 @@ class Public::OrdersController < ApplicationController
   
 
   def index
-    @orders = Order.all 
+    if params[:customer_id].blank?
+      @orders = Order.page(params[:page])
+    else
+      @orders = Order.where(customer_id: params[:customer_id]).page(params[:page])
+    end
   end
   
   def new
     @order = Order.new
+    @addresses = current_customer.addresses
   end
   
   
